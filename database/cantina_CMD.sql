@@ -33,7 +33,7 @@ foreign key (idResp) references usuario_Resp(idResp)
 
 create table conta_Aluno(
 idConta int not null auto_increment primary key,
-idAluno int not null unique,
+idAluno int not null,
 saldo decimal(10,2) not null default 0,
 limiteNegativo decimal(10,2) not null,
 foreign key (idAluno) references usuario_Aluno(idAluno)
@@ -75,6 +75,36 @@ disponivel char(1) not null,
 foreign key (idCard) references cardapio(idCard),
 foreign key (idProd) references produto(idProd)
 );
+
+create table intervalo(
+idIntervalo int not null auto_increment primary key,
+nome varchar(20) not null,
+horarioInicio time not null,
+horarioFIm time
+);
+
+create table pedido(
+idPedido int not null auto_increment primary key,
+idIntervalo int not null,
+idAluno int not null,
+retirado char(1) not null,
+tipoVenda char(1) not null default "S",
+codigoRetirada varchar(10),
+valorTotal decimal(10,2) not null,
+foreign key (idIntervalo) references intervalo(idIntervalo),
+foreign key (idAluno) references usuario_Aluno(idAluno)
+);
+
+create table item_Pedido(
+idItemPedido int not null auto_increment primary key,
+idPedido int not null,
+idProd int not null,
+quantidade int not null default 0,
+precoUnitario decimal(10,2) not null,
+foreign key (idPedido) references pedido(idPedido),
+foreign key (idProd) references produto(idProd)
+);
+
 
 
 
