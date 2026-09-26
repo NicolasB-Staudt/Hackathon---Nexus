@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/assets/css/inde.css">
-    <title>Tela Login</title>
+    <title>Tela Cadastrar Aluno</title>
 </head>
 <body>
 
@@ -15,13 +15,21 @@
         </section>
         <section class="entrarES">
             <div class="campo">
+                <label for="Nome"> Nome</label>
+                <input type="name" name="name" placeholder="Digite seu Nome" id="Nome">
+            </div>
+
+            <div class="campo">
+                <label for="turma">Turma</label>
+                <input type="turma" name="turma" placeholder="Digite sua turma" id="turma">
+            </div>
+
+            <div class="campo">
                 <label for="email">E-mail</label>
-                <input 
-                    type="email" name="email" placeholder="Digite seu e-mail" id="email">
+                <input type="email" name="email" placeholder="Digite seu e-mail" id="email">
             </div>
             <div class="campo">
                 <label for="senha">Senha</label>
-
                 <input type="password" name="password" placeholder="Digite sua senha" id="senha">
             </div>
 
@@ -29,7 +37,6 @@
         <section class="botoes">
             <a href="#" class="SenhaE">Esqueceu sua senha?</a>
             <a href="#" class="Entrar">Entrar</a>
-            <a href="#" class="Cadastrar">Cadastre-se</a>
         </section>
 
     </main>

@@ -57,7 +57,9 @@ body {
 }
 
 #email,
-#senha {
+#senha,
+#turma,
+#Nome {
     width: 100%;
     height: 50px;
     padding: 0 15px;
@@ -70,7 +72,9 @@ body {
 }
 
 #email:focus,
-#senha:focus {
+#senha:focus,
+#turma:focus,
+#Nome:focus {
     border-color: #0052CC;
     background-color: white;
     box-shadow: 0 0 0 3px rgba(23, 133, 82, 0.10);
