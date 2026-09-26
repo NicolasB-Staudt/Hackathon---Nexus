@@ -1,110 +1,33 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="../public/assets/css/cantina-cardapio.css">
-
-    <title>Cardápio</title>
-
-</head>
-
-<body>
-
-    <header class="topo">
-
-        <div class="logo">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../public/assets/css/cantina-cardapio.css" rel="stylesheet"/>
+<title>Cardápio</title>
+<link href="../public/assets/css/common.css" rel="stylesheet"/><link href="../public/assets/css/theme.css" rel="stylesheet"/></head>
+<body><noscript><p class="cmd-empty">Ative o JavaScript para carregar os dados da cantina.</p></noscript>
+<header class="topo">
+<div class="logo">
             Cantina Escolar
         </div>
-
-        <nav>
-            <a href="cantina-painel.html">Início</a>
-            <a href="cantina-pedidos.html">Pedidos</a>
-            <a href="cantina-cardapio.html">Cardápio</a>
-            <a href="cantina-estoque.html">Estoque</a>
-            <a href="cantina-balcao.html">Balcão</a>
-        </nav>
-
-    </header>
-
-
-    <main class="pagina">
-
-        <section class="cabecalho">
-
-            <div>
-                <h1>Cardápio</h1>
-                <p>Gerencie os itens disponíveis para os alunos.</p>
-            </div>
-
-            <button>
+<nav><a href="cantina-painel.html">Início</a><a href="cantina-pedidos.html">Pedidos</a><a href="cantina-cardapio.html">Cardápio</a><a href="cantina-estoque.html">Estoque</a><a href="cantina-balcao.html">Balcão</a><a href="cantina-alunos.html">Alunos</a><a href="cantina-configuracoes.html">Cadastros</a><a href="cantina-administradores.html">Aprovações</a><a href="cantina-perfil.html">Perfil</a><a data-logout href="#">Sair</a></nav>
+</header>
+<main class="pagina">
+<section class="cabecalho">
+<div>
+<h1>Cardápio</h1>
+<p>Gerencie os itens disponíveis para os alunos.</p>
+</div>
+<button>
                 Novo item
             </button>
-
-        </section>
-
-
-        <section class="produtos">
-
-            <article class="produto">
-
-                <div class="foto">
-                    FOTO
-                </div>
-
-                <div class="dados">
-
-                    <h2>Pastel de carne</h2>
-
-                    <p>Salgados</p>
-
-                    <strong>R$ 7,00</strong>
-
-                </div>
-
-                <span class="disponivel">
-                    Disponível
-                </span>
-
-                <button>
-                    Editar
-                </button>
-
-            </article>
+</section>
+<section class="produtos">
 
 
-            <article class="produto">
-
-                <div class="foto">
-                    FOTO
-                </div>
-
-                <div class="dados">
-
-                    <h2>Bolo de chocolate</h2>
-
-                    <p>Doces</p>
-
-                    <strong>R$ 4,00</strong>
-
-                </div>
-
-                <span class="esgotado">
-                    Esgotado
-                </span>
-
-                <button>
-                    Editar
-                </button>
-
-            </article>
-
-        </section>
-
-    </main>
-
-</body>
+</section>
+</main>
+<script src="../public/assets/js/common.js"></script><script src="../public/assets/js/cantina-cardapio.js"></script></body>
 </html>

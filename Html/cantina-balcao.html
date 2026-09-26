@@ -1,126 +1,38 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="../public/assets/css/cantina-balcao.css">
-
-    <title>Atendimento no Balcão</title>
-
-</head>
-
-<body>
-
-    <header class="topo">
-
-        <div class="logo">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../public/assets/css/cantina-balcao.css" rel="stylesheet"/>
+<title>Atendimento no Balcão</title>
+<link href="../public/assets/css/common.css" rel="stylesheet"/><link href="../public/assets/css/theme.css" rel="stylesheet"/></head>
+<body><noscript><p class="cmd-empty">Ative o JavaScript para carregar os dados da cantina.</p></noscript>
+<header class="topo">
+<div class="logo">
             Cantina Escolar
         </div>
-
-        <nav>
-            <a href="cantina-painel.html">Início</a>
-            <a href="cantina-pedidos.html">Pedidos</a>
-            <a href="cantina-balcao.html">Balcão</a>
-        </nav>
-
-    </header>
-
-
-    <main class="pagina">
-
-        <section class="cabecalho">
-
-            <h1>Atendimento no balcão</h1>
-
-            <p>
-                Localize um aluno pelo código, nome ou senha.
+<nav><a href="cantina-painel.html">Início</a><a href="cantina-pedidos.html">Pedidos</a><a href="cantina-cardapio.html">Cardápio</a><a href="cantina-estoque.html">Estoque</a><a href="cantina-balcao.html">Balcão</a><a href="cantina-alunos.html">Alunos</a><a href="cantina-configuracoes.html">Cadastros</a><a href="cantina-administradores.html">Aprovações</a><a href="cantina-perfil.html">Perfil</a><a data-logout href="#">Sair</a></nav>
+</header>
+<main class="pagina">
+<section class="cabecalho">
+<h1>Atendimento no balcão</h1>
+<p>
+                Localize um aluno pelo nome ou código de retirada.
             </p>
-
-        </section>
-
-
-        <input
-            type="text"
-            class="busca"
-            placeholder="Digite o código, nome ou senha"
-        >
-
-
-        <section class="pedido">
-
-            <div class="aluno">
-
-                <div class="foto">
-                    FOTO
-                </div>
-
-                <div>
-                    <h2>Lucas Silva</h2>
-                    <p>6º ano A</p>
-                    <p>Código: 1024</p>
-                </div>
-
-            </div>
-
-
-            <div class="status">
-                Pedido pronto
-            </div>
-
-
-            <div class="itens">
-
-                <div>
-                    <span>1x Pastel de carne</span>
-                    <strong>R$ 7,00</strong>
-                </div>
-
-                <div>
-                    <span>1x Suco de laranja</span>
-                    <strong>R$ 5,00</strong>
-                </div>
-
-            </div>
-
-
-            <div class="rodapePedido">
-
-                <strong>
-                    Total: R$ 12,00
-                </strong>
-
-                <button>
-                    Entregar pedido
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <section class="vendaDireta">
-
-            <h2>Venda direta no balcão</h2>
-
-            <p>
+</section>
+<input class="busca" placeholder="Digite o nome ou código de retirada" type="text"/>
+<section class="pedido"><div class="cmd-empty">Carregando pedidos…</div></section>
+<section class="vendaDireta">
+<h2>Venda direta no balcão</h2>
+<p>
                 Use esta área quando o aluno não possuir pedido antecipado.
             </p>
 
-            <input
-                type="text"
-                placeholder="Buscar aluno"
-            >
-
-            <button>
+<button>
                 Iniciar venda
             </button>
-
-        </section>
-
-    </main>
-
-</body>
+</section>
+</main>
+<script src="../public/assets/js/common.js"></script><script src="../public/assets/js/cantina-balcao.js"></script></body>
 </html>

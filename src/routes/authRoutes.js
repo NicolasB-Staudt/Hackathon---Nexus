@@ -32,4 +32,7 @@ router.get(
 );
 
 
+router.post('/solicitar-redefinicao', authController.solicitarRedefinicao);
+router.post('/redefinir', authController.redefinirSenha);
+
 module.exports = router;

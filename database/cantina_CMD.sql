@@ -1,110 +1,130 @@
-create database Cantina_CMD;
-use Cantina_CMD;
+CREATE DATABASE IF NOT EXISTS Cantina_CMD CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE Cantina_CMD;
 
-create table usuario_Adm(
-idUsuarioAdm int not null auto_increment primary key,
-email varchar(50) not null,
-senha varchar(20) not null,
-nome varchar(100) not null
+CREATE TABLE IF NOT EXISTS usuario_Adm (
+    idUsuarioAdm INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(120) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    status ENUM('PENDENTE','APROVADO','REJEITADO') NOT NULL DEFAULT 'PENDENTE',
+    dataSolicitacao DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    dataAprovacao DATETIME NULL,
+    aprovadoPor INT NULL,
+    CONSTRAINT fk_adm_aprovador FOREIGN KEY (aprovadoPor) REFERENCES usuario_Adm(idUsuarioAdm),
+    foto LONGTEXT NULL,
+    criadoEm DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-create table usuario_Resp(
-idResp int not null auto_increment primary key,
-email varchar(50) not null,
-senha varchar(20) not null,
-nome varchar(100) not null 
+CREATE TABLE IF NOT EXISTS usuario_Resp (
+    idResp INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(120) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    cpf VARCHAR(14) NULL,
+    telefone VARCHAR(20) NULL,
+    foto LONGTEXT NULL,
+    criadoEm DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-create table usuario_Aluno(
-idAluno int not null auto_increment primary key,
-email varchar(50) not null,
-senha varchar(20) not null,
-nome varchar(100) not null, 
-turma varchar(7) not null
+CREATE TABLE IF NOT EXISTS usuario_Aluno (
+    idAluno INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(120) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    turma VARCHAR(30) NOT NULL,
+    foto LONGTEXT NULL,
+    criadoEm DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-create table aluno_respo(
-idAluno int not null,
-idResp int not null,
-primary key (idAluno, idResp),
-foreign key (idAluno) references usuario_Aluno(idAluno),
-foreign key (idResp) references usuario_Resp(idResp)
+CREATE TABLE IF NOT EXISTS aluno_respo (
+    idAluno INT NOT NULL,
+    idResp INT NOT NULL,
+    PRIMARY KEY (idAluno, idResp),
+    CONSTRAINT fk_aluno_respo_aluno FOREIGN KEY (idAluno) REFERENCES usuario_Aluno(idAluno) ON DELETE CASCADE,
+    CONSTRAINT fk_aluno_respo_resp FOREIGN KEY (idResp) REFERENCES usuario_Resp(idResp) ON DELETE CASCADE
 );
 
-create table conta_Aluno(
-idConta int not null auto_increment primary key,
-idAluno int not null,
-saldo decimal(10,2) not null default 0,
-limiteNegativo decimal(10,2) not null,
-foreign key (idAluno) references usuario_Aluno(idAluno)
+CREATE TABLE IF NOT EXISTS conta_Aluno (
+    idConta INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idAluno INT NOT NULL UNIQUE,
+    saldo DECIMAL(10,2) NOT NULL DEFAULT 0,
+    limiteNegativo DECIMAL(10,2) NOT NULL DEFAULT 250.00,
+    limiteDiario DECIMAL(10,2) NOT NULL DEFAULT 25.00,
+    CONSTRAINT fk_conta_aluno FOREIGN KEY (idAluno) REFERENCES usuario_Aluno(idAluno) ON DELETE CASCADE
 );
 
-create table movimento_Conta(
-idMovi int not null auto_increment primary key,
-idConta int not null,
-valor decimal(10,2) not null default 0,
-dataHora datetime not null,
-foreign key (idConta) references conta_Aluno(idConta)
+CREATE TABLE IF NOT EXISTS movimento_Conta (
+    idMovi INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idConta INT NOT NULL,
+    tipo ENUM('DEPOSITO','COMPRA','AJUSTE','ESTORNO') NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
+    descricao VARCHAR(180) NULL,
+    dataHora DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_movimento_conta FOREIGN KEY (idConta) REFERENCES conta_Aluno(idConta) ON DELETE CASCADE
 );
 
-create table produto(
-idProd int not null auto_increment primary key,
-nome varchar(40) not null,
-descricao varchar(100),
-preco decimal(10,2) not null,
-disponivel char(1) not null 
+CREATE TABLE IF NOT EXISTS produto (
+    idProd INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(80) NOT NULL,
+    descricao VARCHAR(180) NULL,
+    categoria VARCHAR(40) NOT NULL DEFAULT 'Outros',
+    preco DECIMAL(10,2) NOT NULL,
+    disponivel CHAR(1) NOT NULL DEFAULT 'S',
+    imagem LONGTEXT NULL,
+    criadoEm DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-create table estoque(
-idItem int not null auto_increment primary key,
-idProd int not null,
-quantidade decimal(10,2) not null default 0,
-foreign key (idProd) references produto(idProd)
+CREATE TABLE IF NOT EXISTS estoque (
+    idItem INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idProd INT NOT NULL UNIQUE,
+    quantidade DECIMAL(10,2) NOT NULL DEFAULT 0,
+    estoqueMinimo DECIMAL(10,2) NOT NULL DEFAULT 5,
+    CONSTRAINT fk_estoque_produto FOREIGN KEY (idProd) REFERENCES produto(idProd) ON DELETE CASCADE
 );
 
-create table cardapio(
-idCard int not null auto_increment primary key,
-dataCardapio datetime not null
-);	
-
-create table item_Cardapio(
-idItemCard int not null auto_increment primary key,
-idCard int not null,
-idProd int not null,
-disponivel char(1) not null,
-foreign key (idCard) references cardapio(idCard),
-foreign key (idProd) references produto(idProd)
+CREATE TABLE IF NOT EXISTS cardapio (
+    idCard INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    dataCardapio DATE NOT NULL UNIQUE
 );
 
-create table intervalo(
-idIntervalo int not null auto_increment primary key,
-nome varchar(20) not null,
-horarioInicio time not null,
-horarioFIm time
+CREATE TABLE IF NOT EXISTS item_Cardapio (
+    idItemCard INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idCard INT NOT NULL,
+    idProd INT NOT NULL,
+    disponivel CHAR(1) NOT NULL DEFAULT 'S',
+    UNIQUE KEY uq_item_cardapio (idCard, idProd),
+    CONSTRAINT fk_item_cardapio_card FOREIGN KEY (idCard) REFERENCES cardapio(idCard) ON DELETE CASCADE,
+    CONSTRAINT fk_item_cardapio_prod FOREIGN KEY (idProd) REFERENCES produto(idProd) ON DELETE CASCADE
 );
 
-create table pedido(
-idPedido int not null auto_increment primary key,
-idIntervalo int not null,
-idAluno int not null,
-retirado char(1) not null,
-tipoVenda char(1) not null default "S",
-codigoRetirada varchar(10),
-valorTotal decimal(10,2) not null,
-foreign key (idIntervalo) references intervalo(idIntervalo),
-foreign key (idAluno) references usuario_Aluno(idAluno)
+CREATE TABLE IF NOT EXISTS intervalo (
+    idIntervalo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(40) NOT NULL,
+    horarioInicio TIME NOT NULL,
+    horarioFim TIME NOT NULL
 );
 
-create table item_Pedido(
-idItemPedido int not null auto_increment primary key,
-idPedido int not null,
-idProd int not null,
-quantidade int not null default 0,
-precoUnitario decimal(10,2) not null,
-foreign key (idPedido) references pedido(idPedido),
-foreign key (idProd) references produto(idProd)
+CREATE TABLE IF NOT EXISTS pedido (
+    idPedido INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idIntervalo INT NULL,
+    idAluno INT NOT NULL,
+    dataHoraPedido DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('PENDENTE','PREPARANDO','PRONTO','RETIRADO','CANCELADO') NOT NULL DEFAULT 'PENDENTE',
+    retirado CHAR(1) NOT NULL DEFAULT 'N',
+    tipoVenda ENUM('ANTECIPADA','BALCAO') NOT NULL DEFAULT 'ANTECIPADA',
+    codigoRetirada VARCHAR(10) NULL UNIQUE,
+    valorTotal DECIMAL(10,2) NOT NULL,
+    CONSTRAINT fk_pedido_intervalo FOREIGN KEY (idIntervalo) REFERENCES intervalo(idIntervalo) ON DELETE SET NULL,
+    CONSTRAINT fk_pedido_aluno FOREIGN KEY (idAluno) REFERENCES usuario_Aluno(idAluno) ON DELETE RESTRICT
 );
 
-
-
+CREATE TABLE IF NOT EXISTS item_Pedido (
+    idItemPedido INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idPedido INT NOT NULL,
+    idProd INT NOT NULL,
+    quantidade INT NOT NULL DEFAULT 1,
+    precoUnitario DECIMAL(10,2) NOT NULL,
+    CONSTRAINT fk_item_pedido_pedido FOREIGN KEY (idPedido) REFERENCES pedido(idPedido) ON DELETE CASCADE,
+    CONSTRAINT fk_item_pedido_prod FOREIGN KEY (idProd) REFERENCES produto(idProd) ON DELETE RESTRICT
+);
 

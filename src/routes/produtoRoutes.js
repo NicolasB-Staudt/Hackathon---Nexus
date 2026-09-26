@@ -1,0 +1,2 @@
+const express=require('express'); const c=require('../controllers/produtoController'); const {verificarLogin,somenteAdm}=require('../middlewares/authMiddleware'); const r=express.Router();
+r.get('/',verificarLogin,c.listar); r.get('/disponiveis',verificarLogin,c.disponiveis); r.post('/',verificarLogin,somenteAdm,c.criar); r.put('/:id',verificarLogin,somenteAdm,c.editar); r.delete('/:id',verificarLogin,somenteAdm,c.excluir); r.patch('/:id/estoque',verificarLogin,somenteAdm,c.atualizarEstoque); module.exports=r;

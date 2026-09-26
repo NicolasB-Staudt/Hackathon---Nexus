@@ -1,3 +1,5 @@
+> Documento histórico da versão anterior. Para instalação e funcionalidades atuais, consulte README.md.
+
 # Guia de Git e GitHub pelo CMD do Windows (fluxo profissional)
 
 Este guia usa somente o **Prompt de Comando (CMD)** do Windows, sem Git Bash e sem GitHub Desktop. Uma observação importante: o programa **Git precisa estar instalado**, porque `git clone`, `git push` e todos os outros comandos são comandos do Git. O que muda é que você digita tudo no CMD, e não no terminal do Git Bash.

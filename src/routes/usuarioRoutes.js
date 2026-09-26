@@ -1,0 +1,13 @@
+const express=require('express');
+const c=require('../controllers/usuarioController');
+const {verificarLogin,somenteAdm,somenteResponsavel}=require('../middlewares/authMiddleware');
+const r=express.Router();
+r.get('/perfil',verificarLogin,c.perfil);
+r.put('/perfil',verificarLogin,c.atualizarPerfil);
+r.get('/alunos',verificarLogin,somenteAdm,c.listarAlunos);
+r.post('/alunos',c.cadastrarAluno);
+r.put('/alunos/:id',verificarLogin,somenteAdm,c.editarAluno);
+r.delete('/alunos/:id',verificarLogin,somenteAdm,c.excluirAluno);
+r.post('/responsaveis',c.cadastrarResponsavel);
+r.get('/meus-alunos',verificarLogin,somenteResponsavel,c.meusAlunos);
+module.exports=r;

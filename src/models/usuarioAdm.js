@@ -7,7 +7,7 @@ async function buscarPorEmail(email) {
             idUsuarioAdm,
             nome,
             email,
-            senha
+            senha, status, dataSolicitacao, dataAprovacao, aprovadoPor
         FROM usuario_Adm
         WHERE email = ?
         LIMIT 1

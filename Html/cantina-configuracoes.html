@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../public/assets/css/cantina-painel.css" rel="stylesheet"/>
+<title>Cadastros · Cantina</title>
+<link href="../public/assets/css/common.css" rel="stylesheet"/><link href="../public/assets/css/theme.css" rel="stylesheet"/></head>
+<body><noscript><p class="cmd-empty">Ative o JavaScript para carregar os dados da cantina.</p></noscript>
+<header class="topo">
+<div class="logo">
+            Cantina Escolar
+        </div>
+<nav><a href="cantina-painel.html">Início</a><a href="cantina-pedidos.html">Pedidos</a><a href="cantina-cardapio.html">Cardápio</a><a href="cantina-estoque.html">Estoque</a><a href="cantina-balcao.html">Balcão</a><a href="cantina-alunos.html">Alunos</a><a href="cantina-configuracoes.html">Cadastros</a><a href="cantina-administradores.html">Aprovações</a><a href="cantina-perfil.html">Perfil</a><a data-logout href="#">Sair</a></nav>
+</header>
+<main class="painel"><section class="cabecalho"><div><h1>Cadastros e vínculos</h1><p>Organize os responsáveis, os alunos e os horários de retirada.</p></div></section><section class="solicitacao-card"><h2>Responsáveis</h2><p>A administração confirma os vínculos para proteger as contas dos alunos.</p><button id="novoResponsavel" class="cmd-btn">Cadastrar responsável</button><div id="responsaveis"></div></section><section class="solicitacao-card"><h2>Intervalos de retirada</h2><p>Cadastre os horários reais da sua escola.</p><button id="novoIntervalo" class="cmd-btn">Adicionar intervalo</button><div id="intervalos"></div></section></main>
+<script src="../public/assets/js/common.js"></script><script src="../public/assets/js/cantina-configuracoes.js"></script></body>
+</html>

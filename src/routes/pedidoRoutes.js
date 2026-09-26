@@ -1,0 +1,2 @@
+const express=require('express');const c=require('../controllers/pedidoController');const {verificarLogin,somenteAdm,somenteAluno}=require('../middlewares/authMiddleware');const r=express.Router();
+r.get('/intervalos',verificarLogin,c.intervalos);r.post('/',verificarLogin,(req,res,next)=>req.session.usuario.tipo==='adm'?somenteAdm(req,res,next):somenteAluno(req,res,next),c.criar);r.get('/meus',verificarLogin,somenteAluno,c.meus);r.get('/',verificarLogin,somenteAdm,c.listar);r.patch('/:id/status',verificarLogin,somenteAdm,c.status);module.exports=r;

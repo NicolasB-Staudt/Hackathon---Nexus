@@ -1,0 +1,6 @@
+document.addEventListener('DOMContentLoaded',()=>{
+  const form=document.querySelector('.formulario');
+  form.insertAdjacentHTML('afterbegin','<div class="campo"><label for="email">E-mail</label><input type="email" id="email" placeholder="Digite seu e-mail"></div><button class="cmd-btn" id="gerarCodigo" type="button">Gerar código de demonstração</button><p id="codigoDemo"></p>');
+  document.querySelector('#gerarCodigo').onclick=async()=>{try{const d=await Cantina.api('/api/auth/solicitar-redefinicao',{method:'POST',body:{email:document.querySelector('#email').value}});document.querySelector('#codigoDemo').textContent=`Código de demonstração: ${d.codigoDemo}`;document.querySelector('#codigo').value=d.codigoDemo;}catch(e){Cantina.toast(e.message,'erro')}};
+  document.querySelector('.Confirmar').onclick=async e=>{e.preventDefault();const nova=document.querySelector('#novaSenha').value;if(nova!==document.querySelector('#confirmarSenha').value)return Cantina.toast('As senhas não coincidem.','erro');try{await Cantina.api('/api/auth/redefinir',{method:'POST',body:{email:document.querySelector('#email').value,codigo:document.querySelector('#codigo').value,novaSenha:nova}});Cantina.toast('Senha alterada.');setTimeout(()=>location.href='inde.html',700);}catch(err){Cantina.toast(err.message,'erro')}};document.querySelector('.voltar').href='inde.html';
+});

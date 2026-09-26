@@ -1,0 +1,1 @@
+const express=require('express');const c=require('../controllers/dashboardController');const {verificarLogin,somenteAdm}=require('../middlewares/authMiddleware');const r=express.Router();r.get('/',verificarLogin,somenteAdm,c.resumo);module.exports=r;
