@@ -1,0 +1,237 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f3f5f8;
+    color: #242424;
+}
+
+.topo {
+    height: 75px;
+
+    padding: 0 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #0052CC;
+
+    color: white;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.topo nav {
+    display: flex;
+    gap: 30px;
+}
+
+.topo nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.principal {
+    max-width: 1200px;
+
+    margin: 35px auto;
+
+    padding: 0 25px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 320px;
+
+    gap: 25px;
+}
+
+.carrinho,
+.resumo {
+    background-color: white;
+
+    border: 1px solid #e4e8ec;
+
+    border-radius: 14px;
+}
+
+.carrinho {
+    padding: 30px;
+}
+
+.carrinho h1 {
+    color: #0052CC;
+
+    font-size: 27px;
+}
+
+.descricao {
+    color: #777;
+
+    margin-top: 5px;
+    margin-bottom: 28px;
+
+    font-size: 14px;
+}
+
+.item {
+    display: grid;
+
+    grid-template-columns: 75px 1fr 90px 80px;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+.foto {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #eee;
+
+    border-radius: 7px;
+
+    color: #999;
+}
+
+.dados h2 {
+    font-size: 15px;
+}
+
+.dados p {
+    color: #777;
+
+    margin-top: 5px;
+
+    font-size: 13px;
+}
+
+.item button {
+    border: none;
+    background: none;
+
+    color: #b53030;
+
+    cursor: pointer;
+}
+
+.intervalo {
+    margin-top: 30px;
+}
+
+.intervalo label {
+    display: block;
+
+    font-weight: 600;
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+.intervalo select {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 12px;
+
+    border: 1px solid #d4d8dd;
+
+    border-radius: 8px;
+
+    background-color: white;
+}
+
+.resumo {
+    height: fit-content;
+
+    padding: 25px;
+}
+
+.resumo h2 {
+    margin-bottom: 25px;
+}
+
+.linhaResumo {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 12px 0;
+
+    color: #555;
+
+    border-bottom: 1px solid #eee;
+}
+
+.total {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 0;
+
+    font-size: 18px;
+}
+
+.total strong {
+    color: #0052CC;
+
+    font-size: 24px;
+}
+
+.confirmar {
+    width: 100%;
+    height: 48px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: #0052CC;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+.resumo a {
+    display: block;
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    color: #0052CC;
+
+    font-size: 13px;
+
+    text-decoration: none;
+}
+
+@media (max-width: 800px) {
+
+    .principal {
+        grid-template-columns: 1fr;
+    }
+
+}

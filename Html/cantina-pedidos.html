@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../public/assets/css/cantina-pedidos.css">
+
+    <title>Pedidos</title>
+
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <div class="logo">
+            Cantina Escolar
+        </div>
+
+        <nav>
+            <a href="cantina-painel.html">Início</a>
+            <a href="cantina-pedidos.html">Pedidos</a>
+            <a href="cantina-cardapio.html">Cardápio</a>
+            <a href="cantina-estoque.html">Estoque</a>
+            <a href="cantina-balcao.html">Balcão</a>
+        </nav>
+
+    </header>
+
+
+    <main class="pedidos">
+
+        <div class="cabecalho">
+
+            <div>
+                <h1>Pedidos</h1>
+                <p>Próximo intervalo: 10:00 às 10:20</p>
+            </div>
+
+        </div>
+
+
+        <input
+            type="text"
+            placeholder="Buscar por aluno, código ou item"
+            class="busca"
+        >
+
+
+        <section class="filtros">
+
+            <button class="ativo">
+                Todos
+            </button>
+
+            <button>
+                Pendentes
+            </button>
+
+            <button>
+                Confirmados
+            </button>
+
+            <button>
+                Entregues
+            </button>
+
+        </section>
+
+
+        <section class="tabela">
+
+            <div class="linha titulo">
+                <span>Código</span>
+                <span>Aluno</span>
+                <span>Itens</span>
+                <span>Retirada</span>
+                <span>Status</span>
+            </div>
+
+            <div class="linha">
+                <span>1024</span>
+                <span>Lucas Silva</span>
+                <span>Pastel + Suco</span>
+                <span>10:00</span>
+                <strong class="pendente">Pendente</strong>
+            </div>
+
+            <div class="linha">
+                <span>1025</span>
+                <span>Ana Costa</span>
+                <span>Pão de queijo</span>
+                <span>10:00</span>
+                <strong class="confirmado">Confirmado</strong>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

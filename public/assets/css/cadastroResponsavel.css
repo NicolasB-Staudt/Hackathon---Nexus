@@ -1,0 +1,141 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 20px;
+    background-color: #f2f5f9;
+}
+
+.cadastro {
+    width: 650px;
+    background-color: white;
+    padding: 42px;
+    border-radius: 16px;
+    border: 1px solid #e4e8ec;
+}
+
+.cabecalho {
+    margin-bottom: 30px;
+}
+
+.cabecalho h1 {
+    color: #0052CC;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.cabecalho p {
+    color: #777;
+    font-size: 15px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.linha {
+    display: flex;
+    gap: 16px;
+}
+
+.campo {
+    width: 100%;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 7px;
+    color: #303030;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.campo input {
+    width: 100%;
+    height: 49px;
+    border: 1px solid #d5d9de;
+    border-radius: 8px;
+    padding: 0 14px;
+    outline: none;
+    background-color: #fafafa;
+    font-size: 14px;
+}
+
+.campo input:focus {
+    border-color: #0052CC;
+    background-color: white;
+}
+
+.vinculo {
+    margin-top: 10px;
+    padding: 20px;
+    border: 1px solid #e2e7ef;
+    border-radius: 10px;
+    background-color: #f8faff;
+}
+
+.vinculo h2 {
+    color: #222;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.vinculo p {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 17px;
+}
+
+.botoes {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.Cadastrar {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0052CC;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.Cadastrar:hover {
+    background-color: #0044aa;
+}
+
+.voltar {
+    text-align: center;
+    color: #0052CC;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+@media (max-width: 650px) {
+
+    .cadastro {
+        width: 100%;
+        padding: 30px 24px;
+    }
+
+    .linha {
+        flex-direction: column;
+    }
+
+}

@@ -1,0 +1,162 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f3f5f8;
+}
+
+.topo {
+    height: 75px;
+
+    padding: 0 45px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #0052CC;
+
+    color: white;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.topo nav {
+    display: flex;
+    gap: 22px;
+}
+
+.topo nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.pagina {
+    max-width: 1100px;
+
+    margin: 35px auto;
+
+    padding: 0 25px;
+}
+
+.cabecalho {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.cabecalho h1 {
+    color: #0052CC;
+}
+
+.cabecalho p {
+    margin-top: 4px;
+
+    color: #777;
+}
+
+.cabecalho button {
+    padding: 11px 18px;
+
+    border: none;
+    border-radius: 7px;
+
+    background-color: #0052CC;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.produtos {
+    background-color: white;
+
+    border: 1px solid #e4e7eb;
+
+    border-radius: 12px;
+
+    padding: 5px 25px;
+}
+
+.produto {
+    min-height: 105px;
+
+    display: grid;
+
+    grid-template-columns: 90px 1fr 120px 80px;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+.foto {
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #eee;
+
+    color: #888;
+
+    border-radius: 7px;
+}
+
+.dados h2 {
+    font-size: 16px;
+}
+
+.dados p {
+    color: #777;
+
+    margin: 4px 0;
+}
+
+.dados strong {
+    color: #0052CC;
+}
+
+.disponivel {
+    color: #197341;
+
+    font-weight: 600;
+}
+
+.esgotado {
+    color: #b33c3c;
+
+    font-weight: 600;
+}
+
+.produto button {
+    border: 1px solid #0052CC;
+
+    background-color: white;
+
+    color: #0052CC;
+
+    padding: 8px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}

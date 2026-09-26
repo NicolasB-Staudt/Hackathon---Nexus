@@ -1,0 +1,297 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f3f5f8;
+    color: #242424;
+}
+
+.topo {
+    height: 75px;
+    padding: 0 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #0052CC;
+    color: white;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.topo nav {
+    display: flex;
+    gap: 30px;
+}
+
+.topo nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.principal {
+    max-width: 1400px;
+    margin: 30px auto;
+
+    padding: 0 30px;
+
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 25px;
+}
+
+.conteudo {
+    background-color: white;
+
+    border: 1px solid #e5e8ec;
+    border-radius: 14px;
+
+    padding: 30px;
+}
+
+.cabecalhoPagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.cabecalhoPagina h1 {
+    color: #0052CC;
+    font-size: 27px;
+}
+
+.cabecalhoPagina p {
+    color: #777;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.saldoTopo {
+    text-align: right;
+}
+
+.saldoTopo span {
+    display: block;
+    font-size: 13px;
+    color: #777;
+}
+
+.saldoTopo strong {
+    font-size: 20px;
+    color: #0052CC;
+}
+
+.categorias {
+    display: flex;
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.categorias button {
+    border: 1px solid #d8dde5;
+
+    background-color: white;
+
+    padding: 9px 18px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    color: #555;
+}
+
+.categorias .ativo {
+    background-color: #0052CC;
+    color: white;
+    border-color: #0052CC;
+}
+
+.cardapio {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.produto {
+    padding: 15px;
+
+    border: 1px solid #e3e6ea;
+    border-radius: 10px;
+
+    background-color: white;
+}
+
+.fotoProduto {
+    height: 135px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #f0f1f3;
+
+    color: #999;
+
+    border-radius: 7px;
+
+    margin-bottom: 15px;
+}
+
+.produto h2 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.produto p {
+    min-height: 40px;
+
+    color: #777;
+    font-size: 13px;
+}
+
+.rodapeProduto {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 15px;
+}
+
+.rodapeProduto strong {
+    color: #0052CC;
+}
+
+.rodapeProduto button {
+    border: none;
+
+    background-color: #0052CC;
+    color: white;
+
+    padding: 8px 12px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.lateral {
+    min-height: 580px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 25px;
+
+    background-color: white;
+
+    border: 1px solid #e5e8ec;
+    border-radius: 14px;
+}
+
+.lateral h2 {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.informacao {
+    padding: 15px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+.informacao span {
+    display: block;
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 4px;
+}
+
+.informacao strong {
+    font-size: 16px;
+}
+
+.total {
+    padding-top: 20px;
+
+    border-top: 1px solid #ddd;
+}
+
+.total span {
+    display: block;
+
+    color: #666;
+    font-size: 13px;
+}
+
+.total strong {
+    display: block;
+
+    margin: 7px 0 15px;
+
+    font-size: 25px;
+
+    color: #0052CC;
+}
+
+.total a {
+    height: 44px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #0052CC;
+    color: white;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+
+    .principal {
+        grid-template-columns: 1fr;
+    }
+
+    .lateral {
+        min-height: auto;
+    }
+
+    .cardapio {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .topo {
+        padding: 0 20px;
+    }
+
+    .cardapio {
+        grid-template-columns: 1fr;
+    }
+
+}
